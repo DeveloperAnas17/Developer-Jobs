@@ -149,6 +149,12 @@ header {
   justify-content: space-between;
 }
 
+.top > img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
 .rolename {
   margin: 20px 0px;
 }
@@ -173,6 +179,7 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 45px;
+  bottom: 2px;
 }
 
 .button {
