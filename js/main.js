@@ -1,6 +1,10 @@
 document.querySelector(".button-container").addEventListener("click", () => {
   let text = document.getElementById("filter-jobs").value;
-  console.log(text);
+  getJobs().then((jobs) => {
+    let filterdJobs = filterJobs(jobs, text);
+    // console.log(filterdJobs);
+    showJobs(filterdJobs);
+  });
 });
 
 function getJobs() {
@@ -9,6 +13,26 @@ function getJobs() {
     .then((data) => {
       return data;
     });
+}
+
+function filterJobs(jobs, searchText) {
+  if (searchText) {
+    let filterdJobs = jobs.filter((job) => {
+      if (
+        job.roleName.toLowerCase().includes(searchText) ||
+        job.type.toLowerCase().includes(searchText) ||
+        job.company.toLowerCase().includes(searchText) ||
+        job.requirements.content.toLowerCase().includes(searchText)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    return filterdJobs;
+  } else {
+    return jobs;
+  }
 }
 
 function showJobs(jobs) {

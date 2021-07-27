@@ -124,7 +124,6 @@ header {
   flex-grow: 1;
   gap: 40px;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
 }
 
 .job-tile {
@@ -198,4 +197,16 @@ header {
   color: white;
   background-color: #3060ff;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 930px) {
+  .jobs-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .jobs-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
